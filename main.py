@@ -23,7 +23,7 @@ inventory = [
      "turquoise earrings",   
      "beige hat",   
      "coral necklace",  
-     "mint green sandals"
+     "mint green sandals\n"
 ]
 
 prices = [
@@ -58,14 +58,14 @@ def get_price(product, inventory, prices):
 while True:
     request = input("").lower()
     if "hours" in request or "time" in request:
-        print("The store is open everyday from 9 AM - 7 PM")
+        print("The store is open everyday from 9 AM - 7 PM\n")
     elif "where" in request or "location" in request or "address" in request:
-        print("The address of the store is 1234 Code2College Street, Austin, TX")
-    elif "products" in request or "clothes" in request:
-        print("Here are the clothes that we currently have in stock:")
+        print("The address of the store is 1234 Code2College Street, Austin, TX\n")
+    elif "products" in request or "clothes" in request or "sold" in request or "stock" in request:
+        print("Here are the clothes that we currently have in stock:\n")
         for i, item in enumerate(inventory):
             print(f"{i+1}. {item}")
-        answer = input("Would you like to request the price for a specific piece of clothing? (Yes or No)\n").lower()
+        answer = input("Would you like to request the price for a specific piece of clothing? (Yes or No)\n\n").lower()
         if answer == "no":
             print("Alright, have a great day!")
         else:
@@ -79,4 +79,4 @@ while True:
     elif "exit" in request or "goodbye" in request:
       print("Thank you for visiting the Clothing Cove! Have a great day.") 
       break 
-    else: print("That's not a valid request, please try again.")
+    else: print("That's not a valid request, please try again.\n")
