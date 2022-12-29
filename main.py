@@ -1,6 +1,7 @@
 name = input("What is your name? ")
 print(f'\nHi, {name}! Welcome to the Clothing Cove, the best thrift store in Austin!')
-print("I can answer questions about store hours, location of the store, available products, and the prices of those products. You can also let me know when you're done talking and I'll stop the conversation. \n")
+print("I can answer questions about store hours, location of the store, available products, and the prices of those products.") 
+print("You can also let me know when you're done talking and I'll stop the conversation. \n")
 print('How can I help you today?')
 
 inventory = [    
