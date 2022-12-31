@@ -1,6 +1,6 @@
 name = input("What is your name? ")
 print(f'\nHi, {name}! Welcome to the Clothing Cove, the best thrift store in Austin!')
-print("I can answer questions about store hours, location of the store, available products, and the prices of those products.") 
+print("I can answer questions about store hours, location of the store, available products, and the price of those products.") 
 print("You can also let me know when you're done talking and I'll stop the conversation. \n")
 print('How can I help you today?')
 
@@ -24,7 +24,7 @@ inventory = [
      "turquoise earrings",   
      "beige hat",   
      "coral necklace",  
-     "mint green sandals\n"
+     "mint green sandals",
 ]
 
 prices = [
@@ -47,14 +47,19 @@ prices = [
     15.99,
     29.99,
     19.99,
-    29.99
+    29.99,
 ]
 
 def get_price(product, inventory, prices):
-    # Find the index of the product in the inventory list
-    index = inventory.index(product)
-    # Return the price at the same index in the prices list
-    return prices[index]
+    # Check if the product exists in the inventory
+    if product in inventory:
+        # Find the index of the product in the inventory list
+        index = inventory.index(product)
+        # Return the price at the same index in the prices list
+        return prices[index]
+    else:
+        # If the product does not exist in the inventory, return None
+        return None
 
 while True:
     request = input("").lower()
@@ -66,18 +71,18 @@ while True:
         print("Here are the clothes that we currently have in stock:\n")
         for i, item in enumerate(inventory):
             print(f"{i+1}. {item}")
-        answer = input("Would you like to request the price for a specific piece of clothing? (Yes or No)\n\n").lower()
-        if answer == "no":
+        answer = input("\nWould you like to request the price for a specific piece of clothing? (Yes or No)\n\n").lower()
+        if "no" in answer:
             print("Alright, have a great day!")
-        else:
+        elif "yes" in answer:
             print("What product would you like the price of?")
             product = input("").lower()
-            try:
-                price = get_price(product, inventory, prices)
+            price = get_price(product, inventory, prices)
+            if price is not None:
                 print(f"The price of the {product} is ${price:.2f}.")
-            except ValueError:
+            else:
                 print(f"Sorry, we do not carry the {product} in our store.")
-    elif "exit" in request or "goodbye" in request:
+    elif "exit" in request or "goodbye" in request or "quit" in request:
       print("Thank you for visiting the Clothing Cove! Have a great day.") 
       break 
     else: print("That's not a valid request, please try again.\n")
